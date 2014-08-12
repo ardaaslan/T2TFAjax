@@ -29,7 +29,7 @@
                 strVar += "                <!-- Beginning of create a test suite-->";
                 strVar += "                <div id=\""+projectName+"suites\" class=\"panel-collapse collapse\">";
                 strVar += "                    <div class=\"panel-body\">";
-                strVar += "                        <button type=\"button\""+ "onClick=\"createTestSuitePrompt("+projectName+"suites"+")\"" +"class=\"btn pull-right btn-lg btn-default\">Create Test Suite<\/button>";
+                strVar += "                        <button type=\"button\""+ "onClick=\"createTestSuitePrompt("+projectName+"suites,"+projectName+")\"" +"class=\"btn pull-right btn-lg btn-default\">Create Test Suite<\/button>";
                 strVar += "                    <\/div>";
                 strVar += "                <\/div>";
                 strVar += "                <!-- End of create a test suite-->";
@@ -60,10 +60,12 @@
         </script>
         
         <script>
-                function createTestSuitePrompt(projectName) {
+                function createTestSuitePrompt(suiteName,projectName) {
          var testSuite = prompt("Please enter your test suite name");
          if (testSuite != null) {
-         var strVar="";
+             
+             var selam = projectName. // PROJECT NmAE CIRCULAR
+            var strVar="";
 //strVar += " <div id=\""+testSuite+"\" class=\"panel-collapse collapse\">";
 strVar += "                    <div id=\""+testSuite+"tests"+"\" class=\"panel-body\">";
 strVar += "                        <a href=\"#\" style=\"color:gray\">";
@@ -75,18 +77,18 @@ strVar += "                    <\/div>";
 //strVar += "                    <\/div>";
 //strVar += "                <\/div>";
                 
-$(projectName).prepend(strVar);
+$(suiteName).prepend(strVar);
      
             var allURL = window.location.toString();
             var userName = allURL.substring(allURL.indexOf("=")+1);
-
+          
             $.ajax({ 
                 url : "CreateTestSuite",
                 data: {
                     projectInfo : JSON.stringify({ 
-                        projectName: projectName ,
+                        projectName: selam,
                         userName   :userName     ,
-                        testSuiteName : testSuite
+                        testSuiteName :testSuite
                     })
                 },
                 dataType: 'json',
